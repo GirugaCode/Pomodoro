@@ -15,6 +15,7 @@ class FirstViewController: UIViewController {
     
     deinit {
         //ACTION: Remove observers
+        NotificationCenter.default.removeObserver(self, name: Notification.Name("receivedNotification"), object: nil)
        
     }
     
