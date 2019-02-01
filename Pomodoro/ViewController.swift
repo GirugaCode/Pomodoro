@@ -115,6 +115,8 @@ class ViewController: UIViewController {
             timer.invalidate()
         }
         
+        print("yeet")
+        
         //ACTION: call the reset method
         resetAll()
         
@@ -131,7 +133,8 @@ class ViewController: UIViewController {
     
     func startTimer() {
         //ACTION: create the timer, selector should be runTimer()
-        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
+        print(timer.isValid)
         
     }
     
