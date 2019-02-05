@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NotificationCenter
 
 class ViewController: UIViewController {
     
@@ -104,6 +105,7 @@ class ViewController: UIViewController {
             } else {
                 // We are in the middle of a cycle
                 // ACTION: Resume the timer.
+                messageLabel.text = "Pomodoro session. Do not disturb."
                 startTimer()
             }
         }
@@ -128,6 +130,11 @@ class ViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @objc func receivedNotification(_ notification:Notification) {
+        // Do something here
+        print("Received notification")
+        self.view.backgroundColor = UIColor.purple
+    }
     
     // MARK: Time Manipulation
     
@@ -185,7 +192,7 @@ class ViewController: UIViewController {
             // If all intervals are complete, reset all.
             // ACTION: Post Notification
             resetAll()
-            NotificationCenter.default.post(name: Notification.Name("receievedNotification"), object: self)
+            NotificationCenter.default.post(name: Notification.Name("receivedNotification"), object: self)
         }
     }
     

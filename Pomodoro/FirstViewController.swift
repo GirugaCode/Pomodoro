@@ -7,7 +7,7 @@
 //  Initial app found here www.globalnerdy.com/2017/06/28/the-code-for-tampa-ios-meetups-pomodoro-timer-exercise
 
 import UIKit
-
+import NotificationCenter
 class FirstViewController: UIViewController {
 
     var completedCycles = 0
@@ -32,7 +32,7 @@ class FirstViewController: UIViewController {
         // ACTION: Update value of completed cycles
         // ACTION: Update message label
         completedCycles += 1
-        messageLabel.text = "\(completedCycles)"
+        messageLabel.text = "\(completedCycles) pomodoro cycles completed today"
         
     }
 }
